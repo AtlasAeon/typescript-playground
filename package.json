@@ -1,0 +1,59 @@
+{
+    "name": "playground",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "lib": "./lib"
+    },
+    "scripts": {
+        "clean": "del-cli --dot=true \"./dist/*\"",
+        "build": "npm run clean && npm run build.compile && npm run build.types",
+        "build.compile": "cross-env NODE_ENV=production babel src -d dist --verbose --extensions .ts --ignore */**/*.d.ts,**/**/*.test.ts --source-maps",
+        "build.types": "cross-env NODE_ENV=production tsc --project tsconfig.types.json",
+        "dev": "npm run clean && cross-env NODE_ENV=development babel -w src -d dist --verbose --extensions .ts --ignore */**/*.d.ts,**/**/*.test.ts --source-maps",
+        "lint": "eslint --ext .js,.ts .",
+        "lint.fix": "eslint --ext .js,.ts --fix .",
+        "format": "prettier \"**/*.{js,mjs,jsx,ts,tsx,json,scss,less,css,md,yml,yaml}\" --write",
+        "test": "jest",
+        "test.update": "jest --update-snapshot",
+        "test.watch": "jest --watch",
+        "test.all": "node ./dev-utils/test-supported-webpack-versions.js",
+        "test.ci": "npm run build && npm run lint && npm run typescript && npm run test.all -- --ci",
+        "typescript": "tsc",
+        "git-pre-commit": "lint-staged",
+        "git-pre-push": "npm run lint && npm run typescript && npm run test.all",
+        "prepublishOnly": "npm run build && npm run lint && npm run typescript && npm run test.all"
+    },
+    "author": "Cadale Thomas",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.5",
+        "@babel/plugin-proposal-class-properties": "^7.4.4",
+        "@babel/plugin-transform-strict-mode": "^7.2.0",
+        "@babel/preset-env": "^7.4.5",
+        "@babel/preset-typescript": "^7.3.3",
+        "@types/del": "^4.0.0",
+        "@types/jest": "^24.0.15",
+        "@types/node": "^12.0.8",
+        "@types/webpack": "^4.4.33",
+        "@typescript-eslint/eslint-plugin": "^1.9.0",
+        "@typescript-eslint/parser": "^1.9.0",
+        "babel-jest": "^24.8.0",
+        "cross-env": "^5.2.0",
+        "eslint": "^5.16.0",
+        "eslint-config-prettier": "^5.0.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "jest": "^24.8.0",
+        "prettier": "^1.18.2",
+        "read-pkg-up": "^6.0.0",
+        "semver": "^6.1.1",
+        "ts-jest": "^24.0.2",
+        "typescript": "^3.5.2",
+        "webpack": "^4.35.0"
+    },
+    "dependencies": {
+        "del": "^4.1.1"
+    }
+}
