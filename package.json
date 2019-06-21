@@ -1,17 +1,25 @@
 {
     "name": "playground",
     "version": "0.0.1",
-    "description": "",
+    "description": "A thing",
+    "license": "ISC",
+    "author": "Cadale Thomas",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AtlasAeon/typescript-playground.git"
+    },
     "main": "index.js",
     "directories": {
-        "lib": "./lib"
+        "lib": "lib"
     },
+    "private": true,
     "scripts": {
-        "clean": "del-cli --dot=true \"./dist/*\"",
+        "clean": "del-cli --dot=true \"./lib/*\" \"./dist/*\"",
         "build": "npm run clean && npm run build.compile && npm run build.types",
-        "build.compile": "cross-env NODE_ENV=production babel src -d dist --verbose --extensions .ts --ignore */**/*.d.ts,**/**/*.test.ts --source-maps",
-        "build.types": "cross-env NODE_ENV=production tsc --project tsconfig.types.json",
-        "dev": "npm run clean && cross-env NODE_ENV=development babel -w src -d dist --verbose --extensions .ts --ignore */**/*.d.ts,**/**/*.test.ts --source-maps",
+        "build.compile": "cross-env NODE_ENV=production babel src -d lib --verbose --extensions .ts --ignore */**/*.d.ts,**/**/*.test.ts --source-maps",
+        "build.types": "cross-env NODE_ENV=production tsc -p tsconfig.types.json",
+        "dev": "npm run clean && cross-env NODE_ENV=development babel src -d lib --verbose --extensions .ts --ignore */**/*.d.ts,**/**/*.test.ts --source-maps",
+        "debug": "npm run dev && node --nolazy --inspect-brk lib/index.js",
         "lint": "eslint --ext .js,.ts .",
         "lint.fix": "eslint --ext .js,.ts --fix .",
         "format": "prettier \"**/*.{js,mjs,jsx,ts,tsx,json,scss,less,css,md,yml,yaml}\" --write",
@@ -25,8 +33,6 @@
         "git-pre-push": "npm run lint && npm run typescript && npm run test.all",
         "prepublishOnly": "npm run build && npm run lint && npm run typescript && npm run test.all"
     },
-    "author": "Cadale Thomas",
-    "license": "ISC",
     "devDependencies": {
         "@babel/cli": "^7.4.4",
         "@babel/core": "^7.4.5",
@@ -42,6 +48,7 @@
         "@typescript-eslint/parser": "^1.9.0",
         "babel-jest": "^24.8.0",
         "cross-env": "^5.2.0",
+        "del-cli": "^2.0.0",
         "eslint": "^5.16.0",
         "eslint-config-prettier": "^5.0.0",
         "eslint-plugin-prettier": "^3.1.0",
@@ -49,11 +56,7 @@
         "prettier": "^1.18.2",
         "read-pkg-up": "^6.0.0",
         "semver": "^6.1.1",
-        "ts-jest": "^24.0.2",
         "typescript": "^3.5.2",
         "webpack": "^4.35.0"
-    },
-    "dependencies": {
-        "del": "^4.1.1"
     }
 }

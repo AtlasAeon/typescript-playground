@@ -11,6 +11,25 @@
             "program": "${workspaceFolder}\\src\\index.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": ["${workspaceFolder}/lib/**/*.js"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Dev",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run-script", "debug"],
+            "envFile": "${workspaceFolder}/.env",
+            "port": 9229
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Test",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run-script", "test"],
+            "envFile": "${workspaceFolder}/.test.env"
         }
     ]
 }

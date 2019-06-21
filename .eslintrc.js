@@ -38,5 +38,13 @@ module.exports = {
     env: {
         node: true,
         jest: true,
+    },
+    overrides: {
+        files: [
+            "build/node-version.js",
+        ],
+        rules: {
+            '@typescript-eslint/no-var-requires': 'off',
+        }
     }
 };

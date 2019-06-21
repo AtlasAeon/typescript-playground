@@ -1,19 +1,26 @@
 'use strict';
 
-const nodeVersion = require('./build/node-version');
+module.exports = api => {
+    const isTest = api.env('test');
+    const isDev = api.env('dev');
+    const nodeVersion = require('./build/node-version');
 
-const babel = {
-    presets: [
-        [
-            '@babel/preset-env',
-            {
-                targets: {
-                    node: nodeVersion,
+    return {
+        presets: [
+            [
+                '@babel/preset-env',
+                {
+                    debug: isDev,
+                    targets: {
+                        node: nodeVersion,
+                    },
                 },
-            },
+            ],
+            '@babel/preset-typescript',
         ],
-        '@babel/preset-typescript',
-    ],
+        plugins: [
+            "@babel/proposal-class-properties",
+            "@babel/proposal-object-rest-spread"
+        ]
+    };
 };
-
-module.exports = babel;

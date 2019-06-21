@@ -27,5 +27,6 @@
             "autoFix": true
         }
     ],
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "jest.showCoverageOnLoad": true
 }

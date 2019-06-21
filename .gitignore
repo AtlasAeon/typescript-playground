@@ -4,8 +4,9 @@
 node_modules
 *.swp
 *.log
-.env
+*.env
 dist
+lib
 *.ignore
 .idea
 .cache

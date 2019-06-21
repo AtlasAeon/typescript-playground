@@ -1,8 +1,4 @@
-export class Hello {
-    SayHi(): void {
-        console.log('Hello!');
-    }
-}
+import { Greeter } from './Greeter';
 
-const hello = new Hello();
-hello.SayHi();
+const hello = new Greeter();
+hello.sayHi();

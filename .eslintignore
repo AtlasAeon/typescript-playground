@@ -4,5 +4,8 @@
 node_modules
 coverage
 dist
+lib
 package.json
 package-lock.json
+*.config.*
+tsconfig*

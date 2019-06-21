@@ -1,4 +1,6 @@
-module.exports = {
+'use strict';
+
+const prettier = {
     semi: true,
     trailingComma: 'all',
     singleQuote: true,
@@ -11,3 +13,5 @@ module.exports = {
         },
     ],
 };
+
+module.exports  =prettier;
