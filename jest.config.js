@@ -1,4 +1,3 @@
-    
 'use strict';
 
 const defaults = require('jest-config').defaults;
