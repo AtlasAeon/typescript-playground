@@ -7,7 +7,7 @@ const defaults = require('jest-config').defaults;
  */
 const jest = {
     testEnvironment: 'node',
-    setupFilesAfterEnv: ['<rootDir>/jest.setup-test.js'],
+    setupFilesAfterEnv: ['<rootDir>/config/jest/jest.setup-test.js'],
     collectCoverage: true,
     coverageDirectory: 'coverage',
     collectCoverageFrom: [
@@ -26,7 +26,7 @@ const jest = {
     transform: {
         '^.+\\.(t|j)sx?$': 'babel-jest',
     },
-    moduleDirectories: ['node_modules', 'src'],
+    moduleDirectories: ['node_modules', '@greeter/src'],
     moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
     /**
      * Automatically reset mock state between every test.

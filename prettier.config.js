@@ -4,7 +4,7 @@ const prettier = {
     semi: true,
     trailingComma: 'all',
     singleQuote: true,
-    printWidth: 120,
+    printWidth: 100,
     tabWidth: 4,
     overrides: [
         {
@@ -14,4 +14,4 @@ const prettier = {
     ],
 };
 
-module.exports  =prettier;
+module.exports = prettier;
