@@ -1,4 +1,4 @@
-import { Greeter } from '../Greeter';
+import Greeter from '../';
 
 let outputData = '';
 let storeLog = inputs => (outputData += inputs);

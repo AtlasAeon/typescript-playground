@@ -20,7 +20,10 @@
             "runtimeExecutable": "npm",
             "runtimeArgs": ["run-script", "debug"],
             "envFile": "${workspaceFolder}/.env",
-            "port": 9229
+            "port": 9229,
+            "console": "internalConsole",
+            "disableOptimisticBPs": true,
+            "env": { "NODE_ENV": "dev" }
         },
         {
             "type": "node",
