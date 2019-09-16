@@ -10,11 +10,7 @@ const jest = {
     setupFilesAfterEnv: ['<rootDir>/config/jest/jest.setup-test.js'],
     collectCoverage: true,
     coverageDirectory: 'coverage',
-    collectCoverageFrom: [
-        "**/src/*.{js,jsx,ts,tsx}",
-        '!**/node_modules/**',
-        '!**/vendor/**'
-    ],
+    collectCoverageFrom: ['**/src/*.{js,jsx,ts,tsx}', '!**/node_modules/**', '!**/vendor/**'],
     coveragePathIgnorePatterns: [
         '/node_modules/',
         '<rootDir>/(.*/?)__sandbox__',
@@ -22,7 +18,7 @@ const jest = {
         '<rootDir>/lib',
         '<rootDir>/dist',
     ],
-    testPathIgnorePatterns: ["<rootDir>/build/", "<rootDir>/node_modules/"],
+    testPathIgnorePatterns: ['<rootDir>/build/', '<rootDir>/node_modules/'],
     transform: {
         '^.+\\.(t|j)sx?$': 'babel-jest',
     },
@@ -56,4 +52,4 @@ const jest = {
      */
     restoreMocks: true,
 };
- module.exports = jest;
+module.exports = jest;
